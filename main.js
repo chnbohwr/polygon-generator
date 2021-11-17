@@ -1,6 +1,8 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
+const color = Math.round(Math.random() * 16777215);
+
 const scene = new THREE.Scene();
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -32,9 +34,9 @@ camera.add(light);
 
 const icosahedronGeometry = new THREE.IcosahedronGeometry(9, 0);
 
-const lineMaterial = new THREE.LineBasicMaterial( { color: 0xffffff, transparent: true, opacity: 0.5 } );
-const meshMaterial = new THREE.MeshPhongMaterial( { color: 0x156289, emissive: 0x072534, side: THREE.DoubleSide, flatShading: true } );
-    
+const lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 });
+const meshMaterial = new THREE.MeshPhongMaterial({ color: color, emissive: 0x072534, side: THREE.DoubleSide, flatShading: true });
+
 const mesh = new THREE.Mesh(icosahedronGeometry, meshMaterial);
 const mesh2 = new THREE.LineSegments(icosahedronGeometry, lineMaterial);
 
